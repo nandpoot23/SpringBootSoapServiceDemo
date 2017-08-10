@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="cbe028b0-9d14-4f65-b787-eb444b939951" activeEnvironment="Default" name="SpringBootSoapServiceDemo" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="2564f468-a47d-43ec-9ebc-cc70ca71bc2d" wsaVersion="NONE" name="ArithmaticCalculationServiceSoapBinding" type="wsdl" bindingName="{http://arithmatic.ubh.uhc.com/calculation/}ArithmaticCalculationServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8090/MathsCalculator/1.0.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8090/MathsCalculator/1.0.wsdl"><con:part><con:url>http://localhost:8090/MathsCalculator/1.0.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="arithmaticService" targetNamespace="http://arithmatic.ubh.uhc.com/calculation/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://arithmatic.ubh.uhc.com/calculation/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://arithmatic.ubh.uhc.com/calculation/">
+      <xsd:element name="sum">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in0" type="xsd:int"/>
+            <xsd:element name="in1" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="sumResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="sub">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in0" type="xsd:int"/>
+            <xsd:element name="in1" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="subResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="multiply">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in0" type="xsd:int"/>
+            <xsd:element name="in1" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="multiplyResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="division">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in0" type="xsd:int"/>
+            <xsd:element name="in1" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="divisionResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="sumRequest">
+    <wsdl:part element="tns:sum" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="sumResponse">
+    <wsdl:part element="tns:sumResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="subRequest">
+    <wsdl:part element="tns:sub" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="subResponse">
+    <wsdl:part element="tns:subResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="multiplyRequest">
+    <wsdl:part element="tns:multiply" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="multiplyResponse">
+    <wsdl:part element="tns:multiplyResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="divisionRequest">
+    <wsdl:part element="tns:division" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="divisionResponse">
+    <wsdl:part element="tns:divisionResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="ArithmaticCalculationServicePort">
+    <wsdl:operation name="sum">
+      <wsdl:input message="tns:sumRequest"/>
+      <wsdl:output message="tns:sumResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="sub">
+      <wsdl:input message="tns:subRequest"/>
+      <wsdl:output message="tns:subResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="multiply">
+      <wsdl:input message="tns:multiplyRequest"/>
+      <wsdl:output message="tns:multiplyResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="division">
+      <wsdl:input message="tns:divisionRequest"/>
+      <wsdl:output message="tns:divisionResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ArithmaticCalculationServiceSoapBinding" type="tns:ArithmaticCalculationServicePort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="sum">
+      <soap:operation soapAction="http://arithmatic.ubh.uhc.com/calculation/sum"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sub">
+      <soap:operation soapAction="http://arithmatic.ubh.uhc.com/calculation/sub"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="multiply">
+      <soap:operation soapAction="http://arithmatic.ubh.uhc.com/calculation/multiply"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="division">
+      <soap:operation soapAction="http://arithmatic.ubh.uhc.com/calculation/division"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ArithmaticCalculationService">
+    <wsdl:port binding="tns:ArithmaticCalculationServiceSoapBinding" name="ArithmaticCalculationServicePort">
+      <soap:address location="http://localhost:8090/MathsCalculator/1.0"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/MathsCalculator/1.0</con:endpoint><con:endpoint>http://localhost:8090/MathsCalculator/1.0</con:endpoint></con:endpoints><con:operation id="75d4188a-004f-426d-9a7d-5c867bc50e67" isOneWay="false" action="http://arithmatic.ubh.uhc.com/calculation/division" name="division" bindingOperationName="division" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7c04c65b-5928-4176-a7e8-b527398e5e61" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8090/MathsCalculator/1.0</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cal="http://arithmatic.ubh.uhc.com/calculation/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cal:division>\r
+         <in0>10</in0>\r
+         <in1>2</in1>\r
+      </cal:division>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://arithmatic.ubh.uhc.com/calculation/division"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="38d4c31a-20e2-4af2-b3bb-297062f516a4" isOneWay="false" action="http://arithmatic.ubh.uhc.com/calculation/multiply" name="multiply" bindingOperationName="multiply" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1dc231ad-4607-40d8-b727-e401a4af5c41" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8090/MathsCalculator/1.0</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cal="http://arithmatic.ubh.uhc.com/calculation/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cal:multiply>\r
+         <in0>76</in0>\r
+         <in1>19</in1>\r
+      </cal:multiply>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://arithmatic.ubh.uhc.com/calculation/multiply"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="2a97387b-a636-4ba8-82b9-93020f538311" isOneWay="false" action="http://arithmatic.ubh.uhc.com/calculation/sub" name="sub" bindingOperationName="sub" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="cd7035aa-067b-439c-b964-2709979c3eda" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8090/MathsCalculator/1.0</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cal="http://arithmatic.ubh.uhc.com/calculation/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cal:sub>\r
+         <in0>500</in0>\r
+         <in1>1</in1>\r
+      </cal:sub>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://arithmatic.ubh.uhc.com/calculation/sub"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="97a31579-ab59-4971-8daf-7e5b0fb501a0" isOneWay="false" action="http://arithmatic.ubh.uhc.com/calculation/sum" name="sum" bindingOperationName="sum" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b63e6eb0-1c4d-4931-b4b2-62ddaf38cfb0" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8090/MathsCalculator/1.0</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cal="http://arithmatic.ubh.uhc.com/calculation/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cal:sum>\r
+         <in0>1000</in0>\r
+         <in1>199</in1>\r
+      </cal:sum>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://arithmatic.ubh.uhc.com/calculation/sum"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
